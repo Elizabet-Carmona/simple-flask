@@ -5,12 +5,14 @@ jobs:
       - image: python
     working_directory: ~/repo
     steps:
+      # Clone repositorio
       - checkout
+
       # Bundle install dependencies
       - run: pip install -r requirements.txt
 
       # Database setup
-      - run: python test.py
+      - run: pytest test.py
 
   deploy:
     docker:
